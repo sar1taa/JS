@@ -24,7 +24,7 @@ console.log(greeting("Hello"));
 * @param {number} a - It will have a number value 
 * @param {number} b - It will have a number value 
 * @return {number} - It returns the multiplication of a and b 
-*/ 
+*/
 let multiply = function (a, b) {
     return a * b;
 };
@@ -35,7 +35,7 @@ console.log(multiply(3, 3));
 * @param {number} x - It will have a number value 
 * @console.log {number} - It will print the cube of the given value
 * When we have a single parameter we don't require parenthesis in arrow function. 
-*/ 
+*/
 let cube = x => x * x * x;
 console.log(cube(2));
 
@@ -120,4 +120,46 @@ function concatenateStrings(separator, ...strings) {
 console.log(concatenateStrings("-", "Hello", "World", "JavaScript")); // Output: "Hello-World-JavaScript"
 // console.log(concatenateStrings(" ", "This", "is", "a", "test")); // Output: "This is a test"
 
+// Error handling 
+function divide(a, b) {
+    if (b === 0) {
+        throw new Error('Something went wrong');
+    }
+    return a / b;
+}
+try {
+    console.log(divide(15, 3));
+    console.log(divide(4, 0));
+} catch (error) {
+    console.error(error.message);
+} finally {
+    console.log("This block is always execute");
+}
+
+// Error handling
+function checkAge(age) {
+    if (age < 18) {
+        throw new Error("You are not eligble to vote");
+    }
+    return age;
+}
+try {
+    console.log(checkAge(22));
+    console.log(checkAge(2));
+} catch (error) {
+    console.error(error.message);
+}
+
+// Error handling
+function functionOne() {
+    functionTwo();
+}
+function functionTwo(){
+        throw new Error("Somthing went wrong....");
+    }
+try {
+    functionOne();
+} catch (error) {
+    console.error(error.message);
+}
 
